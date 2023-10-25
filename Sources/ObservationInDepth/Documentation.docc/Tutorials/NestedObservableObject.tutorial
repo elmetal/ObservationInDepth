@@ -86,4 +86,20 @@
             }
         }
     }
+    
+    @Section(title: "Inline Macro") {
+        @ContentAndMedia {
+            `Observation`はどのように問題を解決したか、マクロを展開してみます。
+            
+            @Steps {
+                @Step {
+                    Inline Macroで`@Observable`マクロを展開してみましょう。
+                    
+                    @Code(name: "Nested @Observable", file: NestedObservableObject-06.swift)
+                }
+                
+                
+            }
+        }
+    }
 }
