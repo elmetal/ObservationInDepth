@@ -1,0 +1,11 @@
+@Tutorials(name: "Observation") {
+    @Intro(title: "Observation") {
+        hello
+        
+    }
+    
+    @Chapter(name: "Nested ObservableObject") {
+        
+        @TutorialReference(tutorial: "doc:NestedObservableObject")
+    }
+}

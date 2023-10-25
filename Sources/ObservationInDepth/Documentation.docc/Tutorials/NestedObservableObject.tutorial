@@ -1,0 +1,58 @@
+@Tutorial(time: 10) {
+    @Intro(title: "Nested ObservableObject") {
+        `ObservableObject`をプロパティに持つ`ObsevableObject`は`Combine`の監視の仕組み上問題があります。
+        `Observation`では、この問題が解決されています。
+        
+        このTutorialでは`ObservableObject`で起こる問題が、`Observation`では起こらないことを確認していきます。
+    }
+    
+    @Section(title: "ObservableObject") {
+        @ContentAndMedia {
+            問題が発生する`ObservableObject`を作成し、どのような問題があるか確認します。
+        }
+        
+        @Steps {
+            @Step {
+                問題が発生する`ObservableObject`を作成します。
+                
+                @Code(name: "Nested ObservableObject", file: NestedObservableObject-01.swift)                
+            }
+            
+            @Step {
+                問題を確認します。
+                Viewを作ってみます。
+                
+                @Code(name: "Nested ObservableObject", file: NestedObservableObject-02.swift)
+                
+                これで準備ができました。
+            }
+            
+            @Step {
+                Have Birthdayボタンをタップしてみましょう。
+                
+                
+                Viewが更新されません。
+                しかし、`Child`の`age`はカウントアップされています。何が起こっているのでしょうか？
+                `Child`は`class`なので、`Parent`は`Child`の実体ではなく参照を持っています。プロパティの`age`が変更されても`Parent`の`child`プロパティは変更されません。
+
+            }
+            
+            @Step {
+                この問題を修正するには、`Child`の`objectWillChange`を`Parent`が検知する必要があります。
+                
+                @Code(name: "Nested ObservableObject", file: NestedObservableObject-03.swift)
+                
+                これでViewが更新されるようになりました。
+                このように、`ObservableObject`では`class`が参照であることで`@Published`をつけていても変更通知がされないケースがあります。
+            }
+        }
+    }
+    
+    @Section(title: "Observation") {
+        @Steps {
+            @Step {
+                `Observation`ではどのようになるか見ていきましょう。
+            }
+        }
+    }
+}
