@@ -1,6 +1,3 @@
-import SwiftUI
-import Combine
-
 final class Parent {
     @ObservationTracked var child: Child
 

@@ -1,5 +1,4 @@
 import SwiftUI
-import Combine
 
 @Observable final class Parent {
     var child: Child
