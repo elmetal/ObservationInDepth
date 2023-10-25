@@ -49,9 +49,30 @@
     }
     
     @Section(title: "Observation") {
+        @ContentAndMedia {
+            `Observation`のケースではどうなるか確認します。
+        }
+        
         @Steps {
             @Step {
                 `Observation`ではどのようになるか見ていきましょう。
+                
+                @Code(name: "Nested @Observable", file: NestedObservableObject-04.swift)
+            }
+            
+            @Step {
+                Viewも作成します。
+                @Code(name: "Nested @Observable", file: NestedObservableObject-05.swift)
+                
+                `parent`が`@State`で宣言されていることに注意してください。
+                `@Observable`では、`@State`でも動作させることができます。
+            }
+            
+            @Step {
+                この状態でHave Birthdayボタンをタップしてみましょう。
+                
+                `ObservableObject`の時とは違い、この状態で動作します。
+                手動で変更通知を送らないと通知されなかった問題が解決されています。
             }
         }
     }
