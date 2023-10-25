@@ -1,5 +1,5 @@
 import XCTest
-@testable import observation_in_depth
+@testable import ObservationInDepth
 
 final class observation_in_depthTests: XCTestCase {
     func testExample() throws {

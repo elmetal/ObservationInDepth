@@ -24,13 +24,17 @@
                 
                 @Code(name: "Nested ObservableObject", file: NestedObservableObject-02.swift)
                 
+            }
+            
+            @Step {
                 これで準備ができました。
+                @Image(source: "NestedObservableObject-image-01.png")
             }
             
             @Step {
                 Have Birthdayボタンをタップしてみましょう。
                 
-                
+                @Image(source: "NestedObservableObject-image-01.png")
                 Viewが更新されません。
                 しかし、`Child`の`age`はカウントアップされています。何が起こっているのでしょうか？
                 `Child`は`class`なので、`Parent`は`Child`の実体ではなく参照を持っています。プロパティの`age`が変更されても`Parent`の`child`プロパティは変更されません。
@@ -41,9 +45,14 @@
                 この問題を修正するには、`Child`の`objectWillChange`を`Parent`が検知する必要があります。
                 
                 @Code(name: "Nested ObservableObject", file: NestedObservableObject-03.swift)
-                
+            }
+            
+            @Step {
                 これでViewが更新されるようになりました。
+                @Image(source: "NestedObservableObject-image-02.png")
+
                 このように、`ObservableObject`では`class`が参照であることで`@Published`をつけていても変更通知がされないケースがあります。
+
             }
         }
     }
@@ -70,6 +79,7 @@
             
             @Step {
                 この状態でHave Birthdayボタンをタップしてみましょう。
+                @Image(source: "NestedObservableObject-image-02.png")
                 
                 `ObservableObject`の時とは違い、この状態で動作します。
                 手動で変更通知を送らないと通知されなかった問題が解決されています。

@@ -1,6 +1,6 @@
 @Tutorials(name: "Observation") {
     @Intro(title: "Observation") {
-        hello
+        ObservationについてTutorial形式で書いていきます。
         
     }
     

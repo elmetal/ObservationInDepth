@@ -2,4 +2,4 @@
 // https://docs.swift.org/swift-book
 
 /// Empty
-public struct Empty {}
+struct Empty {}
