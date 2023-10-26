@@ -106,7 +106,7 @@
             @Step {
                 `@ObservationTracked`をさらに展開してみます。
                 
-                @Code(name: "InlineObservationTrackedMacro.swift", file: NestedObservableObject-07.swift)
+                @Code(name: "InlineObservableMacro.swift", file: NestedObservableObject-07.swift)
                 
                 `age`がcomputed propertyになって、getterとsetterが生成されています。
                 setterで`withMutation(keyPath:)`を呼ぶことで`ObservationRegistrar`を通じて変更を通知していることがわかります。
