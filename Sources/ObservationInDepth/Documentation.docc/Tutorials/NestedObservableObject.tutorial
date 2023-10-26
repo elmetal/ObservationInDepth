@@ -38,6 +38,7 @@
                 Viewが更新されません。
                 しかし、`Child`の`age`はカウントアップされています。何が起こっているのでしょうか？
                 `Child`は`class`なので、`Parent`は`Child`の実体ではなく参照を持っています。プロパティの`age`が変更されても`Parent`の`child`プロパティは変更されません。
+                そのため、`@Published`が変更を検知できず通知されません。
 
             }
             
@@ -93,10 +94,38 @@
         }
         @Steps {
             @Step {
+                `Child`の変更がどのように通知されていくか、展開されたマクロを見ながら追いかけます。
                 Inline Macroで`@Observable`マクロを展開してみましょう。
                 
                 @Code(name: "Inline @Observable Macro", file: NestedObservableObject-06.swift)
+                
+                `age`が`@ObservationTracked`でマークされています。
+                また、`@ObservationIgnored`で`_$observationRegistrar`というプロパティが生成されています。
             }
+            
+            @Step {
+                `@ObservationTracked`をさらに展開してみます。
+                
+                @Code(name: "Inline @ObservationTracked Macro", file: NestedObservableObject-07.swift)
+                
+                `age`がcomputed propertyになって、getterとsetterが生成されています。
+                setterで`withMutation(keyPath:)`を呼ぶことで`ObservationRegistrar`を通じて変更を通知していることがわかります。
+            }
+            
+
         }
     }
+        
+        @Section(title: "Summary") {
+            @ContentAndMedia { 
+                まとめ
+            }
+            
+            @Steps {
+                @Step {
+                    `ObservableObject`では`@Published`のプロパティの変更を検知しているため、参照が変化しない時に通知されない問題がありました。
+                    `@Observation`では、`setter`で`ObservationRegistrar`を通じて変更を通知することで、参照の中の変更であっても子の変更を親へ通知できるようになりました。
+                }
+            }
+        }
 }
