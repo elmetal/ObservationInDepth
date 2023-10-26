@@ -3,6 +3,7 @@
 samarry
 
 ## Essentials
+<doc:ObservationTutorlals>
 
 ## Overview
 

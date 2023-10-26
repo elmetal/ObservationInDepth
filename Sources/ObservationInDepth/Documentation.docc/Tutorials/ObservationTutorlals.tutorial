@@ -1,5 +1,5 @@
-@Tutorials(name: "Observation") {
-    @Intro(title: "Observation") {
+@Tutorials(name: "Observation Tutorlals") {
+    @Intro(title: "Observation Tutorlals") {
         ObservationについてTutorial形式で書いていきます。
         
     }
