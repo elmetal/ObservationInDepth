@@ -111,21 +111,13 @@
                 `age`がcomputed propertyになって、getterとsetterが生成されています。
                 setterで`withMutation(keyPath:)`を呼ぶことで`ObservationRegistrar`を通じて変更を通知していることがわかります。
             }
-            
-
         }
     }
         
-        @Section(title: "Summary") {
-            @ContentAndMedia { 
-                まとめ
-            }
-            
-            @Steps {
-                @Step {
-                    `ObservableObject`では`@Published`のプロパティの変更を検知しているため、参照が変化しない時に通知されない問題がありました。
-                    `@Observation`では、`setter`で`ObservationRegistrar`を通じて変更を通知することで、参照の中の変更であっても子の変更を親へ通知できるようになりました。
-                }
-            }
+    @Section(title: "Summary") {
+        @ContentAndMedia { 
+            `ObservableObject`では`@Published`のプロパティの変更を検知しているため、参照が変化しない時に通知されない問題がありました。
+            `@Observation`では、`setter`で`ObservationRegistrar`を通じて変更を通知することで、参照の中の変更であっても子の変更を親へ通知できるようになりました。
         }
+    }
 }
