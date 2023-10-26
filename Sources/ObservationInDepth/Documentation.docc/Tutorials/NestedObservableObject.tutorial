@@ -15,14 +15,14 @@
             @Step {
                 問題が発生する`ObservableObject`を作成します。
                 
-                @Code(name: "Nested ObservableObject", file: NestedObservableObject-01.swift)                
+                @Code(name: "NestedObservableObject.swift", file: NestedObservableObject-01.swift)                
             }
             
             @Step {
                 問題を確認します。
                 Viewを作ってみます。
                 
-                @Code(name: "Nested ObservableObject", file: NestedObservableObject-02.swift)
+                @Code(name: "NestedObservableObject.swift", file: NestedObservableObject-02.swift)
                 
             }
             
@@ -45,7 +45,7 @@
             @Step {
                 この問題を修正するには、`Child`の`objectWillChange`を`Parent`が検知する必要があります。
                 
-                @Code(name: "Nested ObservableObject", file: NestedObservableObject-03.swift)
+                @Code(name: "NestedObservableObject.swift", file: NestedObservableObject-03.swift)
             }
             
             @Step {
@@ -67,12 +67,12 @@
             @Step {
                 `Observation`ではどのようになるか見ていきましょう。
                 
-                @Code(name: "Nested @Observable", file: NestedObservableObject-04.swift)
+                @Code(name: "NestedObservable.swift", file: NestedObservableObject-04.swift)
             }
             
             @Step {
                 Viewも作成します。
-                @Code(name: "Nested @Observable", file: NestedObservableObject-05.swift)
+                @Code(name: "NestedObservable.swift", file: NestedObservableObject-05.swift)
                 
                 `parent`が`@State`で宣言されていることに注意してください。
                 `@Observable`では、`@State`でも動作させることができます。
@@ -97,7 +97,7 @@
                 `Child`の変更がどのように通知されていくか、展開されたマクロを見ながら追いかけます。
                 Inline Macroで`@Observable`マクロを展開してみましょう。
                 
-                @Code(name: "Inline @Observable Macro", file: NestedObservableObject-06.swift)
+                @Code(name: "InlineObservableMacro.swift", file: NestedObservableObject-06.swift)
                 
                 `age`が`@ObservationTracked`でマークされています。
                 また、`@ObservationIgnored`で`_$observationRegistrar`というプロパティが生成されています。
@@ -106,7 +106,7 @@
             @Step {
                 `@ObservationTracked`をさらに展開してみます。
                 
-                @Code(name: "Inline @ObservationTracked Macro", file: NestedObservableObject-07.swift)
+                @Code(name: "InlineObservationTrackedMacro.swift", file: NestedObservableObject-07.swift)
                 
                 `age`がcomputed propertyになって、getterとsetterが生成されています。
                 setterで`withMutation(keyPath:)`を呼ぶことで`ObservationRegistrar`を通じて変更を通知していることがわかります。
